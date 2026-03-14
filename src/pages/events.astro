@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+function formatEventDate(iso: string): string {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+const eventEntries = await getCollection("events");
+const events = eventEntries.sort(
+  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+);
+---
+
+<BaseLayout
+  title="Events — Portfolio Studies"
+  description="Upcoming events and appearances."
+  currentPath="/events"
+>
+  <main>
+    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Events</p>
+    <h1 class="mt-2 font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+      Upcoming
+    </h1>
+    <p class="mt-6 max-w-[48ch] text-base leading-relaxed text-muted">
+      Exhibitions, readings, workshops, and talks. Dates and venues may change.
+    </p>
+
+    <section class="mt-12 md:mt-16 border-t-2 border-ink pt-8">
+      <ul class="list-none m-0 p-0 divide-y divide-line">
+        {events.map((event) => (
+          <li class="py-6 md:py-8 first:pt-0">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-8 md:items-baseline">
+              <div class="md:col-span-4">
+                <p class="font-mono text-xs text-muted">{formatEventDate(event.data.date)}</p>
+                {event.data.time && <p class="mt-0.5 font-mono text-xs text-muted">{event.data.time}</p>}
+              </div>
+              <div class="md:col-span-8">
+                <h2 class="font-serif text-xl font-medium text-ink md:text-2xl">
+                  {event.data.url ? (
+                    <a href={event.data.url} class="hover:text-accent underline underline-offset-2">{event.data.title}</a>
+                  ) : (
+                    event.data.title
+                  )}
+                </h2>
+                <p class="mt-1 text-sm text-muted">
+                  {event.data.venue}, {event.data.location}
+                </p>
+                {event.data.note && (
+                  <p class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-accent">{event.data.note}</p>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</BaseLayout>

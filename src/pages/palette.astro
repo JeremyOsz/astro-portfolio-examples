@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { palettes, PALETTE_STORAGE_KEY } from "../lib/palettes";
+---
+
+<BaseLayout
+  title="Palette — Portfolio Studies"
+  description="Switch colour palette."
+  currentPath="/palette"
+>
+  <main>
+    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Palette</p>
+    <h1 class="mt-2 font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+      Colour palette
+    </h1>
+    <p class="mt-6 max-w-[48ch] text-base leading-relaxed text-muted">
+      Click a palette to apply it across the site. Your choice is saved and used on the next visit.
+    </p>
+
+    <section class="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {palettes.map((palette) => (
+        <button
+          type="button"
+          class="palette-card group text-left border-2 border-ink bg-paper p-0 overflow-hidden transition-colors hover:bg-paper-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 data-[pressed=true]:ring-2 data-[pressed=true]:ring-accent data-[pressed=true]:ring-offset-2"
+          data-palette-id={palette.id}
+          data-palette-name={palette.name}
+          data-pressed="false"
+          aria-pressed="false"
+          aria-label={`Apply ${palette.name} palette`}
+        >
+          <div class="flex flex-col">
+            <div class="flex flex-wrap">
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-b border-r border-line"
+                style={`background-color: ${palette.token.paper}`}
+                title="paper"
+              />
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-b border-r border-line"
+                style={`background-color: ${palette.token.ink}`}
+                title="ink"
+              />
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-b border-line"
+                style={`background-color: ${palette.token.accent}`}
+                title="accent"
+              />
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-r border-line"
+                style={`background-color: ${palette.token.paperStrong}`}
+                title="paper-strong"
+              />
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-r border-line"
+                style={`background-color: ${palette.token.muted}`}
+                title="muted"
+              />
+              <span
+                class="block w-1/3 aspect-square shrink-0 border-line"
+                style={`background-color: ${palette.token.line}`}
+                title="line"
+              />
+            </div>
+            <div class="p-4 border-t border-line bg-paper">
+              <p class="font-serif text-lg font-medium text-ink">{palette.name}</p>
+              <p class="mt-1 text-xs text-muted">Click to apply</p>
+            </div>
+          </div>
+        </button>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
+
+<script define:vars={{ PALETTE_STORAGE_KEY }}>
+  function applyPalette(id) {
+    const value = id || "";
+    document.documentElement.setAttribute("data-palette", value);
+    try {
+      if (id) localStorage.setItem(PALETTE_STORAGE_KEY, id);
+      else localStorage.removeItem(PALETTE_STORAGE_KEY);
+    } catch (_) {}
+    document.querySelectorAll("[data-palette-id]").forEach((btn) => {
+      const pressed = btn.dataset.paletteId === id;
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      btn.setAttribute("data-pressed", pressed ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll("[data-palette-id]").forEach((btn) => {
+    btn.addEventListener("click", () => applyPalette(btn.dataset.paletteId));
+  });
+
+  const saved = typeof localStorage !== "undefined" ? localStorage.getItem(PALETTE_STORAGE_KEY) : null;
+  if (saved) {
+    document.documentElement.setAttribute("data-palette", saved);
+    document.querySelectorAll("[data-palette-id]").forEach((btn) => {
+      const pressed = btn.dataset.paletteId === saved;
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      btn.setAttribute("data-pressed", pressed ? "true" : "false");
+    });
+  }
+</script>

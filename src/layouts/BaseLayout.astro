@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import { PALETTE_STORAGE_KEY } from "../lib/palettes";
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const { title, description, currentPath = "/" } = Astro.props;
+
+const navItems = [
+  { href: "/", label: "Index" },
+  { href: "/blog", label: "Blog" },
+  { href: "/events", label: "Events" },
+  { href: "/palette", label: "Palette" },
+  { href: "/host-free", label: "Host Free" },
+  { href: "/contact", label: "Contact" },
+  { href: "/visual-artist", label: "Visual Artist" },
+  { href: "/dancer", label: "Dancer / Movement" },
+  { href: "/writer", label: "Writer" }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <script define:vars={{ PALETTE_STORAGE_KEY }}>
+      try {
+        const id = localStorage.getItem(PALETTE_STORAGE_KEY);
+        if (id) document.documentElement.setAttribute("data-palette", id);
+      } catch (_) {}
+    </script>
+  </head>
+  <body class="min-h-screen bg-paper text-ink antialiased">
+    <div class="mx-auto max-w-[1400px] px-5 py-8 md:px-8 md:py-10">
+      <header class="flex flex-col gap-6 border-b border-line pb-6 mb-10 md:flex-row md:items-end md:justify-between md:gap-8 md:pb-4 md:mb-14">
+        <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-muted">Portfolio Studies</p>
+        <nav class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm font-medium uppercase tracking-wider sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-2 lg:gap-x-10" aria-label="Portfolio routes">
+          {
+            navItems.map((item) => {
+              const isCurrent = currentPath === item.href;
+              return (
+                <a
+                  href={item.href}
+                  class={`border-b-2 pb-0.5 transition-colors w-fit ${
+                    isCurrent
+                      ? "border-accent text-ink"
+                      : "border-transparent text-muted hover:border-ink hover:text-ink"
+                  }`}
+                  aria-current={isCurrent ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </header>
+      <slot />
+    </div>
+  </body>
+</html>

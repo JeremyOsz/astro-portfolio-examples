@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, getEntry, render } from "astro:content";
+import { routeImageSets } from "../../lib/imagePool";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", (e) => !e.data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+function formatBlogDate(iso: string): string {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
+
+const { slug } = Astro.params;
+const entry = slug ? await getEntry("blog", slug) : null;
+const featuredImage = routeImageSets.blog.featured;
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+
+{entry && Content ? (
+  <BaseLayout
+    title={`${entry.data.title} — Blog`}
+    description={entry.data.excerpt}
+    currentPath="/blog"
+  >
+    <main>
+      <a href="/blog" class="inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-muted hover:text-accent mb-6">
+        ← Blog
+      </a>
+
+      <header class="border-b-2 border-ink pb-8 md:pb-10">
+        <p class="text-[10px] font-semibold uppercase tracking-widest text-accent">{entry.data.category}</p>
+        <h1 class="mt-2 font-serif text-3xl font-medium leading-tight text-ink md:text-4xl lg:text-5xl max-w-[20ch]">
+          {entry.data.title}
+        </h1>
+        <p class="mt-3 font-mono text-sm text-muted">{formatBlogDate(entry.data.date)}</p>
+      </header>
+
+      {featuredImage && (
+        <figure class="my-10 md:my-12 overflow-hidden border-2 border-ink bg-paper-strong">
+          <div class="aspect-[16/10]">
+            <img
+              src={featuredImage.src}
+              alt={featuredImage.alt}
+              loading="eager"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </figure>
+      )}
+
+      <div class="blog-body max-w-[65ch]">
+        <Content />
+      </div>
+    </main>
+  </BaseLayout>
+) : (
+  <BaseLayout title="Not found" currentPath="/blog">
+    <main>
+      <p class="text-muted">Post not found.</p>
+      <a href="/blog" class="inline-block mt-4 text-accent font-medium">← Back to blog</a>
+    </main>
+  </BaseLayout>
+)}
+<style>
+  .blog-body :global(p) {
+    margin: 0 0 1.25rem;
+    line-height: 1.65;
+  }
+  .blog-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .blog-body :global(.pull-quote) {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .blog-body :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .blog-body :global(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+  .blog-body :global(strong) {
+    font-weight: 600;
+  }
+</style>

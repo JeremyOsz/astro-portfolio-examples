@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPersona } from "../lib/content-cms";
+import { personas } from "../lib/content";
+import { routeImageSets } from "../lib/imagePool";
+
+const persona = (await getPersona("dancer")) ?? {
+  ...personas.dancer,
+  notes: personas.dancer.notes
+};
+const strips = routeImageSets.dancer.strips;
+const portraits = routeImageSets.dancer.portraits;
+---
+
+<BaseLayout
+  title="Dancer Portfolio Example"
+  description="Movement practitioner portfolio example in Astro."
+  currentPath="/dancer"
+>
+  <main>
+    <!-- Big type + statement -->
+    <section class="mb-12 md:mb-16">
+      <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted">{persona.label}</p>
+      <h1 class="mt-2 text-5xl font-bold leading-[0.9] tracking-tighter text-ink md:text-7xl lg:text-8xl">
+        {persona.title}
+      </h1>
+      <p class="mt-6 max-w-[55ch] text-base leading-relaxed text-muted">
+        {persona.statement}
+      </p>
+    </section>
+
+    <!-- MOTION-style section label + sequence strip -->
+    <section class="border-t-2 border-ink pt-8 md:pt-10" aria-label="Movement sequence">
+      <div class="flex items-baseline justify-between gap-4 mb-6">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Sequence</p>
+        <p class="font-mono text-xs text-muted">01 / {String(strips.length).padStart(2, "0")}</p>
+      </div>
+      <div class="flex gap-3 overflow-x-auto pb-2 -mx-5 px-5 md:mx-0 md:px-0 md:grid md:grid-cols-6 md:overflow-visible">
+        {strips.map((image, index) => (
+          <article class="flex-shrink-0 w-[72vw] max-w-[280px] md:w-full border-2 border-ink bg-ink overflow-hidden">
+            <div class="aspect-[3/4]">
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading={index < 2 ? "eager" : "lazy"}
+                class="h-full w-full object-cover opacity-90"
+              />
+            </div>
+            <p class="font-mono text-[10px] uppercase tracking-wider text-paper bg-ink px-3 py-2">
+              frame {String(index + 1).padStart(2, "0")}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- High-contrast block: black bg, white text, meta + portrait stack -->
+    <section class="mt-12 md:mt-16 bg-ink text-paper -mx-5 px-5 py-10 md:mx-0 md:px-10 md:py-14 lg:px-16">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
+        <div class="md:col-span-6 space-y-8">
+          <dl class="grid grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+              <dt class="text-[10px] font-semibold uppercase tracking-widest text-paper/70">Location</dt>
+              <dd class="mt-1 text-sm font-medium">{persona.location}</dd>
+            </div>
+            <div>
+              <dt class="text-[10px] font-semibold uppercase tracking-widest text-paper/70">Focus</dt>
+              <dd class="mt-1 text-sm font-medium">{persona.focus}</dd>
+            </div>
+            <div>
+              <dt class="text-[10px] font-semibold uppercase tracking-widest text-paper/70">Format</dt>
+              <dd class="mt-1 text-sm font-medium">{persona.format}</dd>
+            </div>
+          </dl>
+          <ul class="list-none m-0 p-0 space-y-2 text-sm text-paper/90">
+            {persona.notes.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="md:col-span-6 grid grid-cols-2 gap-3">
+          {portraits.map((image) => (
+            <figure class="m-0 overflow-hidden border-2 border-paper/30">
+              <img src={image.src} alt={image.alt} loading="lazy" class="aspect-[3/4] w-full object-cover" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

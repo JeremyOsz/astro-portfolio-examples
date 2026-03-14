@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const studies = [
+  { href: "/blog", label: "Blog", note: "Notes, process, and essays. Featured post + grid." },
+  { href: "/events", label: "Events", note: "Event listing: date, venue, location. Dividers, mono dates." },
+  { href: "/host-free", label: "Host Free", note: "How to host an artist portfolio for free and move off subscription services." },
+  { href: "/contact", label: "Contact", note: "Email, location, links. Angular info block." },
+  {
+    href: "/visual-artist",
+    label: "Visual Artist",
+    note: "Image-first hero, asymmetric grid, angular frames, single accent."
+  },
+  {
+    href: "/dancer",
+    label: "Dancer / Movement",
+    note: "Bold type, sequence strip, high-contrast block."
+  },
+  {
+    href: "/writer",
+    label: "Writer",
+    note: "Pull quotes, editorial spread, sparse imagery."
+  }
+];
+---
+
+<BaseLayout
+  title="Astro Portfolio Examples"
+  description="Three minimal portfolio route examples for artists."
+  currentPath="/"
+>
+  <main>
+    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Example system</p>
+    <h1 class="mt-2 max-w-[14ch] font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+      Three portfolio directions for artists.
+    </h1>
+    <p class="mt-6 max-w-[52ch] text-base leading-relaxed text-muted">
+      Built in Astro with placeholder images from the Public Domain Image Archive.
+      Image-first, angular, a bit edgy — editorial hierarchy and print-inspired pacing.
+    </p>
+
+    <section class="mt-12 md:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
+      {studies.map((study) => (
+        <a
+          href={study.href}
+          class="group block border-2 border-ink bg-paper p-6 transition-colors hover:bg-paper-strong md:p-8"
+        >
+          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">{study.label}</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink">{study.note}</p>
+          <p class="mt-6 font-mono text-xs uppercase tracking-wider text-muted group-hover:text-accent">
+            open →
+          </p>
+        </a>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
