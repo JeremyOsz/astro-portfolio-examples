@@ -12,7 +12,6 @@ const allPosts = await getCollection("blog", (e) => !e.data.draft);
 const sorted = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 const featured = sorted[0];
 const rest = sorted.slice(1);
-const thumbnails = routeImageSets.blog.thumbnails;
 const featuredImage = routeImageSets.blog.featured;
 ---
 
@@ -22,25 +21,26 @@ const featuredImage = routeImageSets.blog.featured;
   currentPath="/blog"
 >
   <main>
-    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Blog</p>
-    <h1 class="mt-2 font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+    <p class="section-kicker">05 / Journal</p>
+    <h1 class="display-title mt-3 max-w-[10ch] relative">
       Notes & essays
+      <span class="ghost-index top-1 right-auto" style="left:56%" aria-hidden="true">05</span>
     </h1>
 
     {featured && (
-      <a href={`/blog/${featured.slug}`} class="group block mt-10 md:mt-14">
-        <article class="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
-          <div class="md:col-span-5 order-2 md:order-1 flex flex-col justify-end">
-            <p class="text-[10px] font-semibold uppercase tracking-widest text-muted">{featured.data.category}</p>
-            <h2 class="mt-2 font-serif text-2xl font-medium leading-tight text-ink md:text-3xl group-hover:underline">
+      <a href={`/blog/${featured.slug}`} class="group block mt-10 border-y border-line py-8 md:mt-12 md:py-10">
+        <article class="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-12">
+          <div class="md:col-span-5 order-2 md:order-1 flex flex-col justify-end md:pr-8">
+            <p class="section-kicker">{featured.data.category}</p>
+            <h2 class="mt-1 text-xl font-normal leading-tight text-ink md:text-2xl group-hover:opacity-60 transition-opacity">
               {featured.data.title}
             </h2>
-            <p class="mt-2 text-sm text-muted">{formatBlogDate(featured.data.date)}</p>
-            <p class="mt-4 text-sm leading-relaxed text-ink">{featured.data.excerpt}</p>
+            <p class="mt-2 text-[12px] text-muted">{formatBlogDate(featured.data.date)}</p>
+            <p class="mt-3 text-[14px] leading-relaxed text-muted">{featured.data.excerpt}</p>
           </div>
-          <div class="md:col-span-7 order-1 md:order-2 relative">
+          <div class="md:col-span-7 order-1 md:order-2 md:-mt-3">
             {featuredImage && (
-              <figure class="m-0 overflow-hidden border-2 border-ink bg-paper-strong">
+              <figure class="m-0">
                 <div class="aspect-[16/10]">
                   <img
                     src={featuredImage.src}
@@ -51,43 +51,37 @@ const featuredImage = routeImageSets.blog.featured;
                 </div>
               </figure>
             )}
-            <div class="absolute -bottom-2 -right-2 z-10 h-12 w-12 bg-accent md:h-16 md:w-16" aria-hidden="true" />
           </div>
         </article>
       </a>
     )}
 
-    <section class="mt-14 md:mt-20 border-t-2 border-ink pt-10 md:pt-14">
-      <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">More</p>
-      <ul class="mt-6 list-none m-0 p-0 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {rest.map((post, i) => {
-          const thumb = thumbnails[(i + 1) % thumbnails.length];
-          return (
+    {rest.length > 0 && (
+      <section class="mt-10 md:mt-12 border-t border-line">
+        <ul class="m-0 list-none p-0">
+          {rest.map((post, i) => (
             <li>
-              <a href={`/blog/${post.slug}`} class="group block">
-                <article class="border-2 border-ink bg-paper overflow-hidden transition-colors hover:bg-paper-strong">
-                  {thumb && (
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={thumb.src}
-                        alt=""
-                        loading="lazy"
-                        class="h-full w-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div class="p-4 md:p-5">
-                    <p class="text-[10px] font-semibold uppercase tracking-widest text-accent">{post.data.category}</p>
-                    <h3 class="mt-2 font-serif text-lg font-medium leading-tight text-ink group-hover:underline">{post.data.title}</h3>
-                    <p class="mt-1 font-mono text-xs text-muted">{formatBlogDate(post.data.date)}</p>
-                    <p class="mt-3 text-sm leading-relaxed text-muted line-clamp-3">{post.data.excerpt}</p>
-                  </div>
+              <a href={`/blog/${post.slug}`} class="group block border-b border-line py-5 md:py-6 transition-opacity hover:opacity-60">
+                <article class="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-8">
+                  <span class="text-[11px] text-muted tabular-nums md:w-[28px] shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="text-[12px] text-muted md:w-[120px] shrink-0">
+                    {formatBlogDate(post.data.date)}
+                  </span>
+                  <span class="text-[15px] font-medium text-ink flex-1">
+                    {post.data.title}
+                  </span>
+                  <span class="text-[11px] uppercase tracking-[0.12em] text-muted md:hidden">
+                    {post.data.category}
+                  </span>
+                  <span class="text-[11px] text-muted shrink-0 hidden md:block">
+                    [{post.data.category}]
+                  </span>
                 </article>
               </a>
             </li>
-          );
-        })}
-      </ul>
-    </section>
+          ))}
+        </ul>
+      </section>
+    )}
   </main>
 </BaseLayout>

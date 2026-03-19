@@ -8,76 +8,77 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   currentPath="/host-free"
 >
   <main>
-    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Guide</p>
-    <h1 class="mt-2 font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+    <p class="section-kicker">Guide / Hosting</p>
+    <h1 class="display-title mt-3 max-w-[11ch] relative">
       Host your portfolio for free
+      <span class="ghost-index top-0 right-auto" style="left:70%" aria-hidden="true">G</span>
     </h1>
-    <p class="mt-6 max-w-[52ch] text-base leading-relaxed text-muted">
+    <p class="lede mt-4 max-w-[52ch]">
       Stop paying a subscription for a simple portfolio. This guide explains how to move from Wix, Squarespace, Webflow, or similar to free hosting you control.
     </p>
 
-    <section class="mt-12 md:mt-16 space-y-10 md:space-y-14">
+    <section class="mt-12 md:mt-16 space-y-10 md:space-y-14 border-t border-line pt-8">
       <div>
-        <h2 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">1. Get your content off the subscription service</h2>
-        <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-ink">
+        <h2 class="section-kicker">1. Get your content off the subscription service</h2>
+        <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-ink">
           What you can export depends on the platform:
         </p>
-        <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink max-w-[60ch] list-disc pl-5">
-          <li><strong>Webflow</strong> (paid Workspace): use Code export to download HTML, CSS, JS, and assets. CMS and forms won’t work after export.</li>
-          <li><strong>Carrd</strong> (Pro Plus): Dashboard → Sites → Manage → Download Zip for HTML, CSS, and JS. Forms won’t work offline.</li>
-          <li><strong>Wix, Squarespace, Framer</strong>: no official HTML export. Use a third‑party tool (e.g. ExFlow for Squarespace/Framer) or give an LLM your live URL so it can read the rendered page and help you rebuild the design elsewhere.</li>
+        <ul class="mt-4 space-y-2 text-[14px] leading-relaxed text-ink max-w-[60ch] list-disc pl-5">
+          <li><strong>Webflow</strong> (paid Workspace): use Code export to download HTML, CSS, JS, and assets. CMS and forms won't work after export.</li>
+          <li><strong>Carrd</strong> (Pro Plus): Dashboard → Sites → Manage → Download Zip for HTML, CSS, and JS. Forms won't work offline.</li>
+          <li><strong>Wix, Squarespace, Framer</strong>: no official HTML export. Use a third-party tool (e.g. ExFlow for Squarespace/Framer) or give an LLM your live URL so it can read the rendered page and help you rebuild the design elsewhere.</li>
         </ul>
-        <p class="mt-4 text-sm leading-relaxed text-muted max-w-[60ch]">
-          If you can’t export: save your copy and images manually, then rebuild the layout in a static site (like this one) or a simple template. Pointing an LLM at your current URL is often enough for it to suggest structure and styling.
+        <p class="mt-4 text-[14px] leading-relaxed text-muted max-w-[60ch]">
+          If you can't export: save your copy and images manually, then rebuild the layout in a static site (like this one) or a simple template. Pointing an LLM at your current URL is often enough for it to suggest structure and styling.
         </p>
       </div>
 
       <div>
-        <h2 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">2. Choose a free host</h2>
-        <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-ink">
+        <h2 class="section-kicker">2. Choose a free host</h2>
+        <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-ink">
           These hosts offer free tiers suitable for a static portfolio (HTML, CSS, JS, images). No server to manage.
         </p>
-        <ul class="mt-4 space-y-3 text-sm leading-relaxed text-ink max-w-[60ch]">
+        <ul class="mt-4 space-y-3 text-[14px] leading-relaxed text-ink max-w-[60ch]">
           <li><strong>Netlify</strong> — Drag-and-drop a folder or connect a Git repo. Free SSL, custom domain, generous bandwidth for personal sites.</li>
           <li><strong>Vercel</strong> — Same idea: upload or connect Git. Great if you use a framework (Astro, Next, etc.). Free tier is plenty for a portfolio.</li>
           <li><strong>Cloudflare Pages</strong> — Connect Git or upload via Wrangler. Unlimited bandwidth on the free plan.</li>
-          <li><strong>GitHub Pages</strong> — Free if you’re okay with a repo (public or private). Push HTML/CSS/JS or use Jekyll. Custom domain supported.</li>
+          <li><strong>GitHub Pages</strong> — Free if you're okay with a repo (public or private). Push HTML/CSS/JS or use Jekyll. Custom domain supported.</li>
         </ul>
-        <p class="mt-4 text-sm leading-relaxed text-muted max-w-[60ch]">
-          Pick one and stick with it. Netlify or Vercel are the easiest if you’re not used to Git; Cloudflare Pages is ideal if you want no bandwidth limits.
+        <p class="mt-4 text-[14px] leading-relaxed text-muted max-w-[60ch]">
+          Pick one and stick with it. Netlify or Vercel are the easiest if you're not used to Git; Cloudflare Pages is ideal if you want no bandwidth limits.
         </p>
       </div>
 
       <div>
-        <h2 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">3. Deploy your site</h2>
-        <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-ink">
+        <h2 class="section-kicker">3. Deploy your site</h2>
+        <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-ink">
           If you have exported HTML/CSS/JS:
         </p>
-        <ol class="mt-4 space-y-2 text-sm leading-relaxed text-ink max-w-[60ch] list-decimal pl-5">
-          <li>Unzip the export so you have a folder with <code class="bg-paper-strong px-1.5 py-0.5 text-xs font-mono">index.html</code> and assets.</li>
-          <li>On Netlify or Vercel: sign up, then drag that folder into the “Deploy” area (or use “Import from Git” if you put the folder in a repo).</li>
-          <li>You’ll get a URL like <code class="bg-paper-strong px-1.5 py-0.5 text-xs font-mono">yoursite.netlify.app</code>. Use that, or add a custom domain in the host’s settings.</li>
+        <ol class="mt-4 space-y-2 text-[14px] leading-relaxed text-ink max-w-[60ch] list-decimal pl-5">
+          <li>Unzip the export so you have a folder with <code class="bg-paper-strong px-1.5 py-0.5 text-[12px]">index.html</code> and assets.</li>
+          <li>On Netlify or Vercel: sign up, then drag that folder into the "Deploy" area (or use "Import from Git" if you put the folder in a repo).</li>
+          <li>You'll get a URL like <code class="bg-paper-strong px-1.5 py-0.5 text-[12px]">yoursite.netlify.app</code>. Use that, or add a custom domain in the host's settings.</li>
         </ol>
-        <p class="mt-4 text-sm leading-relaxed text-muted max-w-[60ch]">
-          If you’re rebuilding with a template (e.g. this Astro portfolio): clone the repo, add your content, then connect the project to Netlify/Vercel/Cloudflare Pages so every push deploys automatically.
+        <p class="mt-4 text-[14px] leading-relaxed text-muted max-w-[60ch]">
+          If you're rebuilding with a template (e.g. this Astro portfolio): clone the repo, add your content, then connect the project to Netlify/Vercel/Cloudflare Pages so every push deploys automatically.
         </p>
       </div>
 
       <div>
-        <h2 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">4. Point your domain (optional)</h2>
-        <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-ink">
-          If you already have a domain (e.g. from your current Wix or Squarespace plan), you can keep it. In your registrar’s DNS settings, add the records your new host asks for (usually a CNAME or A record). Then in the host’s dashboard, add the custom domain. SSL is free and automatic on Netlify, Vercel, and Cloudflare Pages.
+        <h2 class="section-kicker">4. Point your domain (optional)</h2>
+        <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-ink">
+          If you already have a domain (e.g. from your current Wix or Squarespace plan), you can keep it. In your registrar's DNS settings, add the records your new host asks for (usually a CNAME or A record). Then in the host's dashboard, add the custom domain. SSL is free and automatic on Netlify, Vercel, and Cloudflare Pages.
         </p>
-        <p class="mt-4 text-sm leading-relaxed text-muted max-w-[60ch]">
+        <p class="mt-4 text-[14px] leading-relaxed text-muted max-w-[60ch]">
           After DNS propagates (minutes to a few hours), your portfolio will be live on your own domain with no monthly subscription.
         </p>
       </div>
     </section>
 
-    <section class="mt-14 md:mt-20 pt-10 border-t border-line">
-      <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Summary</p>
-      <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-ink">
-        Export (or capture) your content → put it in a static site (exported files or a template) → deploy to Netlify, Vercel, Cloudflare Pages, or GitHub Pages → add your domain if you have one. After that, you’re on a free host with no lock-in; you can move again anytime by uploading the same files elsewhere.
+    <section class="mt-14 md:mt-20 pt-8 border-t border-line">
+      <p class="section-kicker">Summary</p>
+      <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-ink">
+        Export (or capture) your content → put it in a static site (exported files or a template) → deploy to Netlify, Vercel, Cloudflare Pages, or GitHub Pages → add your domain if you have one. After that, you're on a free host with no lock-in; you can move again anytime by uploading the same files elsewhere.
       </p>
     </section>
   </main>

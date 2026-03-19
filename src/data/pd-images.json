@@ -1,9 +1,152 @@
 {
   "source": "https://pdimagearchive.org/infinite-view/",
   "apiPattern": "/api/galleries/rollup/all/pub-date/desc/{page}.json",
-  "generatedAt": "2026-03-14T10:18:14.386Z",
-  "totalImages": 10974,
+  "generatedAt": "2026-03-19T23:04:15.587Z",
+  "totalImages": 10987,
   "images": [
+    {
+      "uuid": "225d0f9b-792f-4696-84f3-6f8791d5a47a",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00362u.jpg",
+      "width": 3381,
+      "height": 2193,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Canteloupe from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/225d0f9b-792f-4696-84f3-6f8791d5a47a"
+    },
+    {
+      "uuid": "5a52eb69-fcc9-44e5-b6bf-4fb230afef05",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00361u.jpg",
+      "width": 3383,
+      "height": 2198,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Potato from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/5a52eb69-fcc9-44e5-b6bf-4fb230afef05"
+    },
+    {
+      "uuid": "66f6eaa7-2369-47bf-a2d3-321e06af8514",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00360u.jpg",
+      "width": 3385,
+      "height": 2181,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Strawberries from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/66f6eaa7-2369-47bf-a2d3-321e06af8514"
+    },
+    {
+      "uuid": "0bba179d-94d1-45ef-9896-329379a53150",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00359u.jpg",
+      "width": 3387,
+      "height": 2163,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Corn from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/0bba179d-94d1-45ef-9896-329379a53150"
+    },
+    {
+      "uuid": "637bbd9c-ec9d-441b-804f-6b06e1952824",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00358u.jpg",
+      "width": 3386,
+      "height": 2201,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Almonds from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/637bbd9c-ec9d-441b-804f-6b06e1952824"
+    },
+    {
+      "uuid": "3dd1a126-aa0d-436e-a8f6-4e50ae45fd82",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00357u.jpg",
+      "width": 3389,
+      "height": 2177,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Walnuts from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/3dd1a126-aa0d-436e-a8f6-4e50ae45fd82"
+    },
+    {
+      "uuid": "3ffbef7d-4e83-44cc-95b9-18f67de84592",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00356u.jpg",
+      "width": 3381,
+      "height": 2186,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Lemons from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/3ffbef7d-4e83-44cc-95b9-18f67de84592"
+    },
+    {
+      "uuid": "0ed08f59-d60a-4383-8f1f-873bc64cedb8",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00355u.jpg",
+      "width": 3385,
+      "height": 2192,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Pears from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/0ed08f59-d60a-4383-8f1f-873bc64cedb8"
+    },
+    {
+      "uuid": "d47a539c-ae29-409a-92a5-dd36a1fb8317",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00354u.jpg",
+      "width": 3374,
+      "height": 2179,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Peaches from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/d47a539c-ae29-409a-92a5-dd36a1fb8317"
+    },
+    {
+      "uuid": "ba5855cc-22d7-48ce-bcdd-0220700bf5d8",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00353u.jpg",
+      "width": 3386,
+      "height": 2177,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Navel Oranges from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/ba5855cc-22d7-48ce-bcdd-0220700bf5d8"
+    },
+    {
+      "uuid": "4f03ef5a-48c9-424e-b335-a01422217fde",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-pcrd-1a00000-1a00000-1a00300-1a00352u.jpg",
+      "width": 3383,
+      "height": 2179,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Mammoth Apples from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/4f03ef5a-48c9-424e-b335-a01422217fde"
+    },
+    {
+      "uuid": "10dd03e2-57b4-4cec-bbb2-0f6fbd15e236",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-ds-03600-03652u.jpg",
+      "width": 4532,
+      "height": 2920,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Grapes from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/10dd03e2-57b4-4cec-bbb2-0f6fbd15e236"
+    },
+    {
+      "uuid": "b62510cc-fec1-4bbe-927f-c14ee7665578",
+      "src": "https://images.pdimagearchive.org/collections/giant-produce-postcards/master-pnp-ppmsca-19000-19095u.jpg",
+      "width": 6759,
+      "height": 4326,
+      "alt": "Postcard showing giant produce",
+      "title": "A Carload of Mammoth Navel Oranges from California",
+      "artist": "Edward H. Mitchell",
+      "displayDate": "1909",
+      "detailUrl": "https://pdimagearchive.org/images/b62510cc-fec1-4bbe-927f-c14ee7665578"
+    },
     {
       "uuid": "46cac279-210d-4e46-9bbf-8d522b61dffe",
       "src": "https://images.pdimagearchive.org/collections/eight-horses/DP202744-edit.jpg",
@@ -1444,149 +1587,6 @@
       "artist": "Aubrey Beardsley",
       "displayDate": "1894",
       "detailUrl": "https://pdimagearchive.org/images/f35c77f0-8e9b-4179-9745-23ea1f59bbc1"
-    },
-    {
-      "uuid": "a6041d66-7ff6-4a6c-bd80-b207b5289841",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00017.jpg",
-      "width": 1882,
-      "height": 2578,
-      "alt": "",
-      "title": "Dreams",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/a6041d66-7ff6-4a6c-bd80-b207b5289841"
-    },
-    {
-      "uuid": "cfafee22-0192-48b9-bcc5-b97d7379ba9f",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00018.jpg",
-      "width": 2227,
-      "height": 2047,
-      "alt": "",
-      "title": "Unpublished design",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/cfafee22-0192-48b9-bcc5-b97d7379ba9f"
-    },
-    {
-      "uuid": "c74e6e47-c54d-4e99-b81f-3d6c18e0fbdb",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00019.jpg",
-      "width": 2412,
-      "height": 3408,
-      "alt": "",
-      "title": "Baron Verdigris",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/c74e6e47-c54d-4e99-b81f-3d6c18e0fbdb"
-    },
-    {
-      "uuid": "fae5cc7d-b510-423f-8858-0c623a458943",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00020.jpg",
-      "width": 2648,
-      "height": 2981,
-      "alt": "",
-      "title": "The Fat Woman",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/fae5cc7d-b510-423f-8858-0c623a458943"
-    },
-    {
-      "uuid": "64ddc742-9625-42dd-a8e5-e66c15f87fe6",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00021.jpg",
-      "width": 2334,
-      "height": 2990,
-      "alt": "",
-      "title": "Title-page Design",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/64ddc742-9625-42dd-a8e5-e66c15f87fe6"
-    },
-    {
-      "uuid": "30af5d6f-988c-41a5-bf0a-dcfed676b3b9",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00022.jpg",
-      "width": 2450,
-      "height": 2976,
-      "alt": "",
-      "title": "Contents-page Design",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/30af5d6f-988c-41a5-bf0a-dcfed676b3b9"
-    },
-    {
-      "uuid": "1c568751-6f48-4a3f-86b9-737351cffddd",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00023.jpg",
-      "width": 2190,
-      "height": 3022,
-      "alt": "",
-      "title": "The Woman in the Moon",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/1c568751-6f48-4a3f-86b9-737351cffddd"
-    },
-    {
-      "uuid": "514aac67-b211-4e78-88ae-5db6e7953142",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00024.jpg",
-      "width": 2230,
-      "height": 3026,
-      "alt": "",
-      "title": "The Peacock Skirt",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/514aac67-b211-4e78-88ae-5db6e7953142"
-    },
-    {
-      "uuid": "6456e11f-7046-40a5-805a-e782aedb1126",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00025.jpg",
-      "width": 2184,
-      "height": 3000,
-      "alt": "",
-      "title": "The Black Cape",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/6456e11f-7046-40a5-805a-e782aedb1126"
-    },
-    {
-      "uuid": "a6b31e21-c479-49c3-b2b0-b31bee4ae00d",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00026.jpg",
-      "width": 2210,
-      "height": 3010,
-      "alt": "",
-      "title": "The Platonic Lament",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/a6b31e21-c479-49c3-b2b0-b31bee4ae00d"
-    },
-    {
-      "uuid": "6ef89f8b-83a5-4d5f-aca0-81ceb146ec08",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00027.jpg",
-      "width": 2274,
-      "height": 3048,
-      "alt": "",
-      "title": "Enter Herodias",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/6ef89f8b-83a5-4d5f-aca0-81ceb146ec08"
-    },
-    {
-      "uuid": "aeb07395-baf4-42c2-86d0-7db604b1392b",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00028.jpg",
-      "width": 2278,
-      "height": 3012,
-      "alt": "",
-      "title": "The Eyes of Herod",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/aeb07395-baf4-42c2-86d0-7db604b1392b"
-    },
-    {
-      "uuid": "27306417-50e6-449a-87d7-b5bd1dfac170",
-      "src": "https://images.pdimagearchive.org/collections/aubrey-beardsley/beardsley-illustration-00029.jpg",
-      "width": 2258,
-      "height": 3042,
-      "alt": "",
-      "title": "The Stomach Dance",
-      "artist": "Aubrey Beardsley",
-      "displayDate": "1894",
-      "detailUrl": "https://pdimagearchive.org/images/27306417-50e6-449a-87d7-b5bd1dfac170"
     }
   ]
 }

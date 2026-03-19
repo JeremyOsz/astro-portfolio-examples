@@ -9,19 +9,20 @@ import { palettes, PALETTE_STORAGE_KEY } from "../lib/palettes";
   currentPath="/palette"
 >
   <main>
-    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Palette</p>
-    <h1 class="mt-2 font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
+    <p class="section-kicker">Tool / Palette</p>
+    <h1 class="display-title mt-3 max-w-[9ch] relative">
       Colour palette
+      <span class="ghost-index top-0 right-auto" style="left:68%" aria-hidden="true">P</span>
     </h1>
-    <p class="mt-6 max-w-[48ch] text-base leading-relaxed text-muted">
+    <p class="lede mt-3 max-w-[48ch]">
       Click a palette to apply it across the site. Your choice is saved and used on the next visit.
     </p>
 
-    <section class="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <section class="mt-10 md:mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
       {palettes.map((palette) => (
         <button
           type="button"
-          class="palette-card group text-left border-2 border-ink bg-paper p-0 overflow-hidden transition-colors hover:bg-paper-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 data-[pressed=true]:ring-2 data-[pressed=true]:ring-accent data-[pressed=true]:ring-offset-2"
+          class="palette-card group text-left border border-line bg-paper p-0 overflow-hidden transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-1 focus-visible:ring-ink data-[pressed=true]:ring-1 data-[pressed=true]:ring-ink"
           data-palette-id={palette.id}
           data-palette-name={palette.name}
           data-pressed="false"
@@ -29,41 +30,22 @@ import { palettes, PALETTE_STORAGE_KEY } from "../lib/palettes";
           aria-label={`Apply ${palette.name} palette`}
         >
           <div class="flex flex-col">
-            <div class="flex flex-wrap">
+            <div class="flex">
               <span
-                class="block w-1/3 aspect-square shrink-0 border-b border-r border-line"
+                class="block w-1/3 aspect-[2/1] shrink-0"
                 style={`background-color: ${palette.token.paper}`}
-                title="paper"
               />
               <span
-                class="block w-1/3 aspect-square shrink-0 border-b border-r border-line"
+                class="block w-1/3 aspect-[2/1] shrink-0"
                 style={`background-color: ${palette.token.ink}`}
-                title="ink"
               />
               <span
-                class="block w-1/3 aspect-square shrink-0 border-b border-line"
-                style={`background-color: ${palette.token.accent}`}
-                title="accent"
-              />
-              <span
-                class="block w-1/3 aspect-square shrink-0 border-r border-line"
-                style={`background-color: ${palette.token.paperStrong}`}
-                title="paper-strong"
-              />
-              <span
-                class="block w-1/3 aspect-square shrink-0 border-r border-line"
+                class="block w-1/3 aspect-[2/1] shrink-0"
                 style={`background-color: ${palette.token.muted}`}
-                title="muted"
-              />
-              <span
-                class="block w-1/3 aspect-square shrink-0 border-line"
-                style={`background-color: ${palette.token.line}`}
-                title="line"
               />
             </div>
-            <div class="p-4 border-t border-line bg-paper">
-              <p class="font-serif text-lg font-medium text-ink">{palette.name}</p>
-              <p class="mt-1 text-xs text-muted">Click to apply</p>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-[13px] text-ink">{palette.name}</p>
             </div>
           </div>
         </button>

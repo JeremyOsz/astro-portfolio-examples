@@ -2,24 +2,54 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const studies = [
-  { href: "/blog", label: "Blog", note: "Notes, process, and essays. Featured post + grid." },
-  { href: "/events", label: "Events", note: "Event listing: date, venue, location. Dividers, mono dates." },
-  { href: "/host-free", label: "Host Free", note: "How to host an artist portfolio for free and move off subscription services." },
-  { href: "/contact", label: "Contact", note: "Email, location, links. Angular info block." },
   {
     href: "/visual-artist",
     label: "Visual Artist",
-    note: "Image-first hero, asymmetric grid, angular frames, single accent."
+    note: "Image-led format with long captions and loose gallery rhythm.",
+    tags: ["Portfolio", "Images"],
+    year: "2026"
   },
   {
     href: "/dancer",
     label: "Dancer / Movement",
-    note: "Bold type, sequence strip, high-contrast block."
+    note: "Temporal sequencing and rehearsal references for embodied practice.",
+    tags: ["Portfolio", "Performance"],
+    year: "2026"
   },
   {
     href: "/writer",
     label: "Writer",
-    note: "Pull quotes, editorial spread, sparse imagery."
+    note: "Text-first arrangement with excerpts and publication metadata.",
+    tags: ["Portfolio", "Text"],
+    year: "2026"
+  },
+  {
+    href: "/blog",
+    label: "Blog",
+    note: "A running studio journal: references, process notes, micro-essays.",
+    tags: ["Content"],
+    year: "2026"
+  },
+  {
+    href: "/events",
+    label: "Events",
+    note: "Public programme timeline with dates, venues, and annotations.",
+    tags: ["Content"],
+    year: "2026"
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    note: "Email, location, links.",
+    tags: ["Info"],
+    year: "2026"
+  },
+  {
+    href: "/host-free",
+    label: "Host Free",
+    note: "How to host an artist portfolio for free.",
+    tags: ["Tutorial"],
+    year: "Guide"
   }
 ];
 ---
@@ -30,28 +60,53 @@ const studies = [
   currentPath="/"
 >
   <main>
-    <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Example system</p>
-    <h1 class="mt-2 max-w-[14ch] font-serif text-4xl font-medium leading-[0.95] tracking-tight text-ink md:text-5xl lg:text-6xl">
-      Three portfolio directions for artists.
-    </h1>
-    <p class="mt-6 max-w-[52ch] text-base leading-relaxed text-muted">
-      Built in Astro with placeholder images from the Public Domain Image Archive.
-      Image-first, angular, a bit edgy — editorial hierarchy and print-inspired pacing.
-    </p>
+    <section class="grid grid-cols-1 gap-8 border-b border-line pb-12 md:grid-cols-12 md:gap-10 md:pb-16">
+      <div class="md:col-span-8">
+        <p class="section-kicker">Index</p>
+        <h1 class="display-title mt-3 max-w-[14ch]">
+          Portfolio studies for artists in transition.
+        </h1>
+      </div>
+      <p class="md:col-span-4 md:self-end text-[14px] leading-relaxed text-muted max-w-[28ch]">
+        A set of route-level compositions inspired by contemporary art studio websites,
+        publishing indexes, and gallery calendars.
+      </p>
+    </section>
 
-    <section class="mt-12 md:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
-      {studies.map((study) => (
-        <a
-          href={study.href}
-          class="group block border-2 border-ink bg-paper p-6 transition-colors hover:bg-paper-strong md:p-8"
-        >
-          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">{study.label}</p>
-          <p class="mt-3 text-sm leading-relaxed text-ink">{study.note}</p>
-          <p class="mt-6 font-mono text-xs uppercase tracking-wider text-muted group-hover:text-accent">
-            open →
-          </p>
-        </a>
-      ))}
+    <section class="mt-10 md:mt-14">
+      <h2 class="section-kicker mb-4">Available studies</h2>
+      <div class="border-t border-line">
+        {studies.map((study, i) => (
+          <a
+            href={study.href}
+            class="group grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-b border-line py-5 transition-colors hover:bg-paper-strong/40 md:grid-cols-[42px_180px_1fr_auto] md:items-baseline md:gap-x-6"
+          >
+            <span class="text-[11px] tabular-nums text-muted">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span class="text-[16px] font-medium text-ink md:text-[15px]">
+              {study.label}
+            </span>
+            <span class="col-span-2 md:col-span-1 text-[14px] leading-relaxed text-muted">
+              {study.note}
+            </span>
+            <div class="hidden items-baseline gap-3 md:flex">
+              <span class="text-[11px] uppercase tracking-[0.14em] text-muted">{study.year}</span>
+              <span class="text-[11px] text-muted">
+                {study.tags.map((tag) => `[${tag}]`).join(" ")}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12 md:mt-16 grid grid-cols-1 gap-4 md:grid-cols-12">
+      <p class="section-kicker md:col-span-3">Approach</p>
+      <p class="md:col-span-9 max-w-[62ch] text-[14px] leading-relaxed text-muted">
+        The system uses one restrained palette and typographic hierarchy as the primary visual language.
+        Layout shifts from page to page through rhythm, proportion, and sequencing rather than decorative effects.
+      </p>
     </section>
   </main>
 </BaseLayout>
