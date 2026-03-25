@@ -1,7 +1,7 @@
 {
   "source": "https://pdimagearchive.org/infinite-view/",
   "apiPattern": "/api/galleries/rollup/all/pub-date/desc/{page}.json",
-  "generatedAt": "2026-03-19T23:04:15.587Z",
+  "generatedAt": "2026-03-25T17:14:01.123Z",
   "totalImages": 10987,
   "images": [
     {

@@ -4,7 +4,8 @@ date: "2026-03-14"
 excerpt: "A single Astro app with three editorial routes and a blog. Image-first, angular, a bit edgy — and all of it fed by the Public Domain Image Archive."
 category: "Project"
 ---
-
+# Portfolio Studies: a small system for artist sites
+## Introduction
 This site is an example system. It exists to show how artists can put together a portfolio that feels like a place, not an app: image-first, angular, a bit edgy, with a print-inspired sense of hierarchy and pacing.
 
 It's built with **Astro**. One codebase, a few routes. No heavy framework, no dashboard. Content and layout are close together. At build time a script fetches images from the [Public Domain Image Archive](https://pdimagearchive.org/infinite-view/) and caches them locally, so the site stays fast and stable without depending on a live API at runtime.
