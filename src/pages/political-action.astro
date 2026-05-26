@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const dispatchItems = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+];
+
+const schedule = [
+  { date: "19 JUL", label: "Lorem ipsum", location: "Dolor sit" },
+  { date: "26 JUL", label: "Amet consectetur", location: "Adipiscing" },
+  { date: "02 AUG", label: "Tempor incididunt", location: "Magna aliqua" }
+];
+---
+
+<BaseLayout
+  title="Political Action Group Example"
+  description="Black and white brutalist political action group page example in Astro."
+  currentPath="/political-action"
+>
+  <main class="bg-paper text-ink">
+    <section class="border-[3px] border-ink bg-paper">
+      <div class="grid grid-cols-1 md:grid-cols-12">
+        <div class="border-b-[3px] border-ink bg-paper-strong p-4 md:col-span-3 md:border-b-0 md:border-r-[3px] md:p-5">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-[0.22em]">Political Action</p>
+          <p class="mt-10 max-w-[24ch] font-mono text-sm leading-snug md:mt-24">
+            Lorem ipsum dolor sit amet
+          </p>
+        </div>
+
+        <div class="md:col-span-9">
+          <div class="grid grid-cols-3 border-b-[3px] border-ink font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
+            <p class="border-r-[3px] border-ink px-3 py-2">Issue 01</p>
+            <p class="border-r-[3px] border-ink px-3 py-2">19 Jul</p>
+            <p class="px-3 py-2">Lorem</p>
+          </div>
+
+          <div class="relative overflow-hidden p-4 sm:p-6 md:p-8">
+            <div
+              class="absolute right-4 top-4 hidden h-28 w-28 rotate-12 border-[3px] border-ink bg-paper md:block"
+              aria-hidden="true"
+            />
+            <p class="inline-block border-[3px] border-ink bg-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-paper">
+              Lorem ipsum
+            </p>
+            <h1 class="mt-5 max-w-[10ch] text-6xl font-black leading-[0.82] tracking-normal text-ink sm:text-7xl md:text-8xl lg:text-9xl">
+              Lorem Ipsum Dolor
+            </h1>
+            <div class="mt-5 flex max-w-4xl flex-wrap gap-2 font-mono text-xs font-bold uppercase tracking-wider">
+              <span class="border-[3px] border-ink bg-paper px-3 py-2">Sit amet</span>
+              <span class="border-[3px] border-ink bg-ink px-3 py-2 text-paper">Consectetur</span>
+              <span class="border-[3px] border-ink bg-paper px-3 py-2">Adipiscing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 grid grid-cols-1 gap-0 border-[3px] border-ink md:mt-10 md:grid-cols-12">
+      <div class="bg-ink p-5 text-paper md:col-span-5 md:p-8">
+        <p class="font-mono text-[10px] font-bold uppercase tracking-[0.22em]">Bulletin</p>
+        <h2 class="mt-4 text-4xl font-black leading-[0.9] tracking-normal sm:text-5xl md:text-6xl">
+          Nulla pariatur
+        </h2>
+        <p class="mt-6 max-w-[36ch] text-base font-semibold leading-snug text-paper/90">
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div class="grid gap-0 md:col-span-7">
+        {dispatchItems.map((item, index) => (
+          <article class="grid grid-cols-[72px_1fr] border-t-[3px] border-ink bg-paper first:border-t-0 md:grid-cols-[96px_1fr]">
+            <p class="border-r-[3px] border-ink bg-paper-strong p-4 font-mono text-xl font-black">
+              {String(index + 1).padStart(2, "0")}
+            </p>
+            <p class="p-4 text-lg font-extrabold leading-tight tracking-normal sm:text-xl md:p-5 md:text-2xl">
+              {item}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-8 grid grid-cols-1 gap-4 md:mt-10 md:grid-cols-12 md:gap-5">
+      <div class="border-[3px] border-ink bg-paper p-5 md:col-span-4 md:p-6">
+        <p class="font-mono text-[10px] font-bold uppercase tracking-[0.22em]">Notice</p>
+        <p class="mt-8 text-3xl font-black leading-[0.98] tracking-normal">
+          Duis aute irure dolor in reprehenderit.
+        </p>
+      </div>
+
+      <div class="grid gap-4 md:col-span-8 md:grid-cols-3 md:gap-5">
+        {schedule.map((item) => (
+          <article class="border-[3px] border-ink bg-paper">
+            <p class="border-b-[3px] border-ink bg-ink px-4 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-paper">
+              {item.date}
+            </p>
+            <div class="p-4">
+              <h3 class="text-2xl font-black leading-none tracking-normal">{item.label}</h3>
+              <p class="mt-5 font-mono text-xs font-bold tracking-wider">{item.location}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-8 border-[3px] border-ink bg-ink p-4 text-paper md:mt-10 md:p-6">
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <p class="border-[3px] border-paper p-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em]">Lorem</p>
+        <p class="border-[3px] border-paper p-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em]">Ipsum</p>
+        <p class="border-[3px] border-paper p-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em]">Dolor</p>
+        <p class="border-[3px] border-paper p-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em]">Amet</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

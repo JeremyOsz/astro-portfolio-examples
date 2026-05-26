@@ -6,9 +6,10 @@ export const MAIN_NAV = [
   { href: "/visual-artist", label: "Visual", id: "02" },
   { href: "/dancer", label: "Dancer", id: "03" },
   { href: "/writer", label: "Writer", id: "04" },
-  { href: "/blog", label: "Journal", id: "05" },
-  { href: "/events", label: "Events", id: "06" },
-  { href: "/contact", label: "Contact", id: "07" }
+  { href: "/political-action", label: "Action", id: "05" },
+  { href: "/blog", label: "Journal", id: "06" },
+  { href: "/events", label: "Events", id: "07" },
+  { href: "/contact", label: "Contact", id: "08" }
 ] as const;
 
 export type MainNavItem = (typeof MAIN_NAV)[number];
@@ -17,7 +18,7 @@ export type MainNavItem = (typeof MAIN_NAV)[number];
 export function siteRouteId(pathname: string): string {
   const p = pathname.replace(/\/$/, "") || "/";
   if (p === "/") return "01";
-  if (p.startsWith("/blog")) return "05";
+  if (p.startsWith("/blog")) return "06";
   const hit = MAIN_NAV.find((item) => item.href !== "/" && p.startsWith(item.href));
   return hit?.id ?? "";
 }
